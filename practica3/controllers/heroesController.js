@@ -6,12 +6,24 @@ let heroesController = {
     },
 
     show: function(req, res){
-        return res.send('Detalle de un heroe.')
+        let id = req.params.id
+        for (let i = 0; i < db.length; i++) {
+            if (id == db.lista.id){
+                return res.render('detHeroe', {hola: db.lista[i]})
+            }
+            
+        }
+        
     },
 
     detail: function(req, res){
-        return res.send('Bio del heroe')
+        
     },
+
+    heroes: function (req, res) {
+       
+        return res.render('heroes', {heroes: db.lista})
+    }
 
 }
 
